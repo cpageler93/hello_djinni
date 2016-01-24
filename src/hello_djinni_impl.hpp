@@ -11,5 +11,6 @@ namespace hellodjinni {
 
         // Our method that returns a string
         std::string get_hello_djinni();
+        int32_t get_one();
     };
 }

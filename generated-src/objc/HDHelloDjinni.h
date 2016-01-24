@@ -11,4 +11,6 @@
 
 - (nonnull NSString *)getHelloDjinni;
 
+- (int32_t)getOne;
+
 @end

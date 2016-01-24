@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <cstdint>
 #include <memory>
 #include <string>
 
@@ -15,6 +16,8 @@ public:
     static std::shared_ptr<HelloDjinni> create();
 
     virtual std::string get_hello_djinni() = 0;
+
+    virtual int32_t get_one() = 0;
 };
 
 }  // namespace hellodjinni

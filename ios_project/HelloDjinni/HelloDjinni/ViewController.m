@@ -22,6 +22,9 @@
 	HDHelloDjinni *helloDjinniInterface = [HDHelloDjinni create];
 	NSString *helloDjinni = [helloDjinniInterface getHelloDjinni];
 	NSLog(@"%@", helloDjinni);
+	
+	int32_t one = [helloDjinniInterface getOne];
+	NSLog(@"1 = %d", one);
 }
 
 - (void)didReceiveMemoryWarning

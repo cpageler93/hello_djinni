@@ -8,6 +8,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class HelloDjinni {
     public abstract String getHelloDjinni();
 
+    public abstract int getOne();
+
     public static native HelloDjinni create();
 
     private static final class CppProxy extends HelloDjinni
@@ -40,5 +42,13 @@ public abstract class HelloDjinni {
             return native_getHelloDjinni(this.nativeRef);
         }
         private native String native_getHelloDjinni(long _nativeRef);
+
+        @Override
+        public int getOne()
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getOne(this.nativeRef);
+        }
+        private native int native_getOne(long _nativeRef);
     }
 }

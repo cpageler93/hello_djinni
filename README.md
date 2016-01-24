@@ -400,3 +400,9 @@ NSString *helloDjinni = [helloDjinniInterface getHelloDjinni];
 NSLog(@"%@", helloDjinni);
 
 ```
+
+## When the interface changes
+
+- update the .djini-File
+- implement in C++
+- run make

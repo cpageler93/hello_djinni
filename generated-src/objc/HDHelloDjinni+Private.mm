@@ -44,6 +44,13 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
+- (int32_t)getOne {
+    try {
+        auto r = _cppRefHandle.get()->get_one();
+        return ::djinni::I32::fromCpp(r);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
 namespace djinni_generated {
 
 auto HelloDjinni::toCpp(ObjcType objc) -> CppType

@@ -28,4 +28,8 @@ namespace hellodjinni {
 
     }
 
+    int32_t HelloDjinniImpl::get_one() {
+        return 1;
+    }
+
 }
