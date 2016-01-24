@@ -4,7 +4,7 @@
 
 namespace hellodjinni {
 
-    class HelloDjinniImpl : public HelloDJinni {
+    class HelloDjinniImpl : public HelloDjinni {
     public:
         // Constructor
         HelloDjinniImpl();

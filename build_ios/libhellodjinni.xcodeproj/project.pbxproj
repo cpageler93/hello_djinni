@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		00B47B504228B8CDE4076C56 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6E8A4EF8A697D28035889EBC /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				F35C55E53691B4D0BC73DE44 /* PBXTargetDependency */,
+				74E72DD429562DFF30F52960 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1707D80C09C48CED97CE0CFA /* libdjinni_jni.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 376F2E6B4C4C5F4FAE71681D /* libdjinni_jni.a */; };
+		3DD32AEC0051F2D07C3FC016 /* HDHelloDjinni+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4687C2220582C0D26139B9A /* HDHelloDjinni+Private.mm */; };
+		5C38E40128292870A35B3994 /* NativeHelloDjinni.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 063F8F2B5693719524CB8716 /* NativeHelloDjinni.cpp */; };
+		C9D5B0DA72D693165CD1213C /* djinni_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C9457C7A07DC5D675E06E /* djinni_main.cpp */; };
+		DEBDC05431CFBAF8B29A1CD0 /* hello_djinni_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D777EAB45F4322F8D750118A /* hello_djinni_impl.cpp */; };
+		F80F68CE479DD4762DAEA1AA /* hello_djinni_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D777EAB45F4322F8D750118A /* hello_djinni_impl.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02EB9A7E2AA95BD09E6A2FAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B64D2D83F4418783E790B3DB /* support_lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC658C749F521B13A5BDCBBC;
+			remoteInfo = djinni_jni;
+		};
+		062D59D8E2B1C9DEDCCFBAD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B64D2D83F4418783E790B3DB /* support_lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0C99AA4F95316AA552A79C55;
+			remoteInfo = djinni_objc;
+		};
+		62EEBAC8698FFC010D5C349E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9418BE3B33EFF47620CA72A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9570BE858337CA13747F71C8;
+			remoteInfo = libhellodjinni_objc;
+		};
+		B1650E8F353CF79B7583A0A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B64D2D83F4418783E790B3DB /* support_lib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AD97C5F2356EF26110758A40;
+			remoteInfo = djinni_jni;
+		};
+		D4C1837D7443A9D8B84A9FB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9418BE3B33EFF47620CA72A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40AF83733CF0623529609E24;
+			remoteInfo = libhellodjinni_jni;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		063F8F2B5693719524CB8716 /* NativeHelloDjinni.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NativeHelloDjinni.cpp; sourceTree = "<group>"; };
+		8A9C9457C7A07DC5D675E06E /* djinni_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = djinni_main.cpp; sourceTree = "<group>"; };
+		8E0933CD2B908A6DC07E63A4 /* libhellodjinni_objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libhellodjinni_objc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4687C2220582C0D26139B9A /* HDHelloDjinni+Private.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "HDHelloDjinni+Private.mm"; sourceTree = "<group>"; };
+		B64D2D83F4418783E790B3DB /* support_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = support_lib.xcodeproj; path = "build_ios/deps/djinni/support-lib/support_lib.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		BEA17C543931AE939E390E80 /* libhellodjinni_jni.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libhellodjinni_jni.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D777EAB45F4322F8D750118A /* hello_djinni_impl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hello_djinni_impl.cpp; sourceTree = "<group>"; };
+		ED48F667F35FE1DE1232857C /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = deps/djinni/common.gypi; sourceTree = "<group>"; };
+		FF4D19094E197023924C0946 /* libhellodjinni.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = libhellodjinni.gyp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9AD05EB58B70324292B9C1C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5E11E4AD825117E287B5996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1707D80C09C48CED97CE0CFA /* libdjinni_jni.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31D583DD9B4312F596EAB3BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEA17C543931AE939E390E80 /* libhellodjinni_jni.dylib */,
+				8E0933CD2B908A6DC07E63A4 /* libhellodjinni_objc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E015D7AB71CD8060798D6DC /* jni */ = {
+			isa = PBXGroup;
+			children = (
+				063F8F2B5693719524CB8716 /* NativeHelloDjinni.cpp */,
+			);
+			path = jni;
+			sourceTree = "<group>";
+		};
+		7FA96E29AB31B00A51C281FE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D777EAB45F4322F8D750118A /* hello_djinni_impl.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		91018BBF74E947A28E9DFD43 /* generated-src */ = {
+			isa = PBXGroup;
+			children = (
+				6E015D7AB71CD8060798D6DC /* jni */,
+				B6306E7A79D79C73769CB61E /* objc */,
+			);
+			path = "generated-src";
+			sourceTree = "<group>";
+		};
+		A1A994EF656721BDC063CF84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				376F2E6B4C4C5F4FAE71681D /* libdjinni_jni.a */,
+				C6B844BB24F2FBC8360036FB /* libdjinni_objc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEF0E0C7B6A7C60F9D690B3B /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				ED48F667F35FE1DE1232857C /* common.gypi */,
+				FF4D19094E197023924C0946 /* libhellodjinni.gyp */,
+			);
+			name = Build;
+			sourceTree = "<group>";
+		};
+		B6306E7A79D79C73769CB61E /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				A4687C2220582C0D26139B9A /* HDHelloDjinni+Private.mm */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
+		BD0EC8CAD05C20EB5A0A5BE3 = {
+			isa = PBXGroup;
+			children = (
+				F561B2861FEF2EA40F1EE003 /* Source */,
+				FE96838625C884A20415B6F8 /* Projects */,
+				31D583DD9B4312F596EAB3BE /* Products */,
+				AEF0E0C7B6A7C60F9D690B3B /* Build */,
+			);
+			sourceTree = "<group>";
+		};
+		E6E5BECC28DCDEA1A1A511E2 /* deps/djinni/support-lib/jni */ = {
+			isa = PBXGroup;
+			children = (
+				8A9C9457C7A07DC5D675E06E /* djinni_main.cpp */,
+			);
+			path = "deps/djinni/support-lib/jni";
+			sourceTree = "<group>";
+		};
+		F561B2861FEF2EA40F1EE003 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E6E5BECC28DCDEA1A1A511E2 /* deps/djinni/support-lib/jni */,
+				91018BBF74E947A28E9DFD43 /* generated-src */,
+				7FA96E29AB31B00A51C281FE /* src */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		FE96838625C884A20415B6F8 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				B64D2D83F4418783E790B3DB /* support_lib.xcodeproj */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40AF83733CF0623529609E24 /* libhellodjinni_jni */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC7D68FD243AB20CAC9C601F /* Build configuration list for PBXNativeTarget "libhellodjinni_jni" */;
+			buildPhases = (
+				BE251C4AABF08807E887C4F7 /* Sources */,
+				F5E11E4AD825117E287B5996 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA503812E9607AF013E66F86 /* PBXTargetDependency */,
+			);
+			name = libhellodjinni_jni;
+			productName = hellodjinni_jni;
+			productReference = BEA17C543931AE939E390E80 /* libhellodjinni_jni.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		9570BE858337CA13747F71C8 /* libhellodjinni_objc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CA6C567AAEED77E89FB8325 /* Build configuration list for PBXNativeTarget "libhellodjinni_objc" */;
+			buildPhases = (
+				6F55EBB4209574691DB899B4 /* Sources */,
+				9AD05EB58B70324292B9C1C8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libhellodjinni_objc;
+			productName = hellodjinni_objc;
+			productReference = 8E0933CD2B908A6DC07E63A4 /* libhellodjinni_objc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9418BE3B33EFF47620CA72A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = D4BEAFAEF1EF250CB76C31D2 /* Build configuration list for PBXProject "libhellodjinni" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = BD0EC8CAD05C20EB5A0A5BE3;
+			projectDirPath = ..;
+			projectReferences = (
+				{
+					ProductGroup = A1A994EF656721BDC063CF84 /* Products */;
+					ProjectRef = B64D2D83F4418783E790B3DB /* support_lib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				00B47B504228B8CDE4076C56 /* All */,
+				40AF83733CF0623529609E24 /* libhellodjinni_jni */,
+				9570BE858337CA13747F71C8 /* libhellodjinni_objc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		376F2E6B4C4C5F4FAE71681D /* libdjinni_jni.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libdjinni_jni.a;
+			remoteRef = 02EB9A7E2AA95BD09E6A2FAA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C6B844BB24F2FBC8360036FB /* libdjinni_objc.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libdjinni_objc.a;
+			remoteRef = 062D59D8E2B1C9DEDCCFBAD8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6F55EBB4209574691DB899B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DD32AEC0051F2D07C3FC016 /* HDHelloDjinni+Private.mm in Sources */,
+				F80F68CE479DD4762DAEA1AA /* hello_djinni_impl.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE251C4AABF08807E887C4F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D5B0DA72D693165CD1213C /* djinni_main.cpp in Sources */,
+				5C38E40128292870A35B3994 /* NativeHelloDjinni.cpp in Sources */,
+				DEBDC05431CFBAF8B29A1CD0 /* hello_djinni_impl.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74E72DD429562DFF30F52960 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9570BE858337CA13747F71C8 /* libhellodjinni_objc */;
+			targetProxy = 62EEBAC8698FFC010D5C349E /* PBXContainerItemProxy */;
+		};
+		F35C55E53691B4D0BC73DE44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40AF83733CF0623529609E24 /* libhellodjinni_jni */;
+			targetProxy = D4C1837D7443A9D8B84A9FB8 /* PBXContainerItemProxy */;
+		};
+		FA503812E9607AF013E66F86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = djinni_jni;
+			targetProxy = B1650E8F353CF79B7583A0A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		12665098ACD92A53F9BDE605 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = All;
+			};
+			name = Release;
+		};
+		4D1FF53B5A6381BB4E77D9F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
+				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
+			};
+			name = Release;
+		};
+		515E0E68F2E10487F426910B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				HEADER_SEARCH_PATHS = (
+					"generated-src/objc",
+					"generated-src/cpp",
+					src,
+					"deps/djinni/support-lib/objc",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-Wall";
+				OTHER_CPLUSPLUSFLAGS = "-Wall";
+				PRODUCT_NAME = hellodjinni_objc;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Debug;
+		};
+		59D23C79DBBA9482B5B34FB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				HEADER_SEARCH_PATHS = (
+					"generated-src/jni",
+					"generated-src/cpp",
+					src,
+					"deps/djinni/support-lib/jni",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-Wall";
+				OTHER_CPLUSPLUSFLAGS = "-Wall";
+				PRODUCT_NAME = hellodjinni_jni;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Debug;
+		};
+		8DCA7596E8EFFDDFEDF5560F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
+				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
+			};
+			name = Debug;
+		};
+		9A4C6ABA6953C6180BD74752 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		BDC33BDC1E38657D5C8C9C99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "NDEBUG=1";
+				HEADER_SEARCH_PATHS = (
+					"generated-src/objc",
+					"generated-src/cpp",
+					src,
+					"deps/djinni/support-lib/objc",
+				);
+				OTHER_CFLAGS = "-Wall";
+				OTHER_CPLUSPLUSFLAGS = "-Wall";
+				PRODUCT_NAME = hellodjinni_objc;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Release;
+		};
+		FA873A16E3899E1080E442B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "NDEBUG=1";
+				HEADER_SEARCH_PATHS = (
+					"generated-src/jni",
+					"generated-src/cpp",
+					src,
+					"deps/djinni/support-lib/jni",
+				);
+				OTHER_CFLAGS = "-Wall";
+				OTHER_CPLUSPLUSFLAGS = "-Wall";
+				PRODUCT_NAME = hellodjinni_jni;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CA6C567AAEED77E89FB8325 /* Build configuration list for PBXNativeTarget "libhellodjinni_objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				515E0E68F2E10487F426910B /* Debug */,
+				BDC33BDC1E38657D5C8C9C99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		6E8A4EF8A697D28035889EBC /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A4C6ABA6953C6180BD74752 /* Debug */,
+				12665098ACD92A53F9BDE605 /* Release */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		D4BEAFAEF1EF250CB76C31D2 /* Build configuration list for PBXProject "libhellodjinni" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DCA7596E8EFFDDFEDF5560F /* Debug */,
+				4D1FF53B5A6381BB4E77D9F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		EC7D68FD243AB20CAC9C601F /* Build configuration list for PBXNativeTarget "libhellodjinni_jni" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59D23C79DBBA9482B5B34FB8 /* Debug */,
+				FA873A16E3899E1080E442B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9418BE3B33EFF47620CA72A8 /* Project object */;
+}

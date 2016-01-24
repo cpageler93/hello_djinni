@@ -26,7 +26,7 @@ git checkout -q 0bb67471bca068996e15b56738fa4824dfa19de0
 ```
 
 
-### 2. create djinni file
+### 2. Create djinni file
 
 in your project directory
 
@@ -48,7 +48,7 @@ hello_djinni = interface +c {
 }
 ```
 
-### 3. create djinni shell script
+### 3. Create djinni shell script
 
 this script will be used to create all generated code
 
@@ -137,7 +137,7 @@ Resolving...
 Generating...
 ```
 
-### your project dir
+### Your project dir
 
 should now look similar to this:
 
@@ -151,7 +151,7 @@ drwxr-xr-x  6 christoph  staff   204B 24 Jan 12:58 generated-src
 -rwxr-xr-x  1 christoph  staff   757B 24 Jan 12:47 run_djinni.sh
 ```
 
-### 4. write c++ implementation
+### 4. Write c++ implementation
 
 create src folder 
 
@@ -168,7 +168,7 @@ mkdir src
 - <span style="color: red">method names</span>
 
 
-**New File: src/hello_djinin_impl.hpp**
+**New File: src/hello_djinni_impl.hpp**
 
 ```
 #pragma once
@@ -177,7 +177,7 @@ mkdir src
 
 namespace hellodjinni {
 
-    class HelloDjinniImpl : public HelloDJinni {
+    class HelloDjinniImpl : public HelloDjinni {
     public:
         // Constructor
         HelloDjinniImpl();
@@ -228,4 +228,175 @@ namespace hellodjinni {
 
 we're so brave, skip this step 💪🏼
 
-### 6. 
+### 6. Generate iOS Libraries (GYP)
+
+Create GYP File
+
+**Specific for this Tutorial:**
+
+- <span style="color: red">Filename: libhellodjinni.gyp</span>
+- <span style="color: red">Target names</span>
+
+**New File libhellodjinni.gyp**
+
+```
+{
+    "targets": [
+        {
+            "target_name": "libhellodjinni_jni",
+            "type": "shared_library",
+            "dependencies": [
+              "./deps/djinni/support-lib/support_lib.gyp:djinni_jni",
+            ],
+            "ldflags": [ "-llog", "-Wl,--build-id,--gc-sections,--exclude-libs,ALL" ],
+            "sources": [
+              "./deps/djinni/support-lib/jni/djinni_main.cpp",
+              "<!@(python deps/djinni/example/glob.py generated-src/jni   '*.cpp')",
+              "<!@(python deps/djinni/example/glob.py generated-src/cpp   '*.cpp')",
+              "<!@(python deps/djinni/example/glob.py src '*.cpp')",
+            ],
+            "include_dirs": [
+              "generated-src/jni",
+              "generated-src/cpp",
+              "src",
+            ],
+        },
+        {
+            "target_name": "libhellodjinni_objc",
+            "type": 'static_library',
+            "dependencies": [
+              "./deps/djinni/support-lib/support_lib.gyp:djinni_objc",
+            ],
+            'direct_dependent_settings': {
+
+            },
+            "sources": [
+              "<!@(python deps/djinni/example/glob.py generated-src/objc  '*.cpp' '*.mm' '*.m')",
+              "<!@(python deps/djinni/example/glob.py generated-src/cpp   '*.cpp')",
+              "<!@(python deps/djinni/example/glob.py src '*.cpp')",
+            ],
+            "include_dirs": [
+              "generated-src/objc",
+              "generated-src/cpp",
+              "src",
+            ],
+        },
+    ],
+}
+```
+
+### 7. Create iOS Project
+
+Create Folder for iOS Project
+
+```
+mkdir ios_project
+```
+
+**Create Xcode Workspace**
+
+**Create iOS Project in this Folder**<br>
+**and add the Project to the Workspace**
+
+Your iOS project directory should look similar to this:
+
+```
+> ll                                                                                                                         drwxr-xr-x  6 christoph  staff   204B 24 Jan 13:31 HelloDjinni
+drwxr-xr-x  4 christoph  staff   136B 24 Jan 13:48 HelloDjinni.xcworkspace
+
+> pwd
+/Users/christoph/dev/private/hello_djinni/ios_project
+```
+
+### 8. Create Makefile
+
+**Specific for this Tutorial:**
+
+- <span style="color: red">... every "hellodjinni" in the makefile</span>
+- <span style="color: red">Project</span>
+- <span style="color: red">Workpace</span>
+- <span style="color: red">Scheme</span>
+
+**New File: Makefile**
+
+```
+./build_ios/libhellodjinni.xcodeproj: libhellodjinni.gyp ./deps/djinni/support-lib/support_lib.gyp hellodjinni.djinni
+	sh ./run_djinni.sh
+	deps/gyp/gyp --depth=. -f xcode -DOS=ios --generator-output ./build_ios -Ideps/djinni/common.gypi ./libhellodjinni.gyp
+
+ios: ./build_ios/libhellodjinni.xcodeproj
+	xcodebuild -workspace ios_project/HelloDjinni.xcworkspace \
+	-scheme HelloDjinni \
+	-configuration 'Debug' \
+	-sdk iphoneos
+```
+
+** JUST DO IT**
+
+```
+make ios
+```
+
+when everything worked fine, a new folder should be generated "build_ios"
+
+### Your project dir
+
+should now look similar to this:
+
+```
+> ll
+-rw-r--r--  1 christoph  staff   1,1K 24 Jan 12:22 LICENSE
+-rw-r--r--  1 christoph  staff   425B 24 Jan 13:53 Makefile
+-rw-r--r--@ 1 christoph  staff   8,9K 24 Jan 13:54 README.md
+drwxr-xr-x  5 christoph  staff   170B 24 Jan 13:45 build_ios
+drwxr-xr-x  4 christoph  staff   136B 24 Jan 12:31 deps
+drwxr-xr-x  6 christoph  staff   204B 24 Jan 12:58 generated-src
+-rw-r--r--  1 christoph  staff    98B 24 Jan 12:43 hellodjinni.djinni
+drwxr-xr-x  4 christoph  staff   136B 24 Jan 13:48 ios_project
+-rw-r--r--  1 christoph  staff   1,5K 24 Jan 13:18 libhellodjinni.gyp
+-rwxr-xr-x  1 christoph  staff   757B 24 Jan 12:47 run_djinni.sh
+drwxr-xr-x  4 christoph  staff   136B 24 Jan 13:08 src
+```
+
+### 9. Add the Libraries to the build
+
+**Specific for this Tutorial:**
+
+- <span style="color: red">lib names</span>
+
+**Steps:**
+
+- Add the two new generated Xcode Projects in the build_ios directory to the workspace
+- In the HelloDjinni Project add "libhellodjinni_objc.a" and "libdjinni_objc.a" to "Link Binaries With Libraries"
+- Add Header Search Paths
+
+**Header Search Paths**
+
+```
+$(SRCROOT)/../../deps/djinni/support-lib/objc
+$(SRCROOT)/../../generated-src/objc
+```
+
+now you should be able to build the project
+
+### 10. Call the C++ Library form Obj-C \o/
+
+**Specific for this Tutorial:**
+
+- <span style="color: red">Generated ObjC Bridging Classes</span>
+
+
+Rename HelloDjinni/Supporting Files/main.m to main.mm to be compatible with our Objective-C++ bridge code
+
+**In any of your Obj-C Files:**
+
+```
+#import "HDHelloDjinni.h"
+
+[...]
+
+HDHelloDjinni *helloDjinniInterface = [HDHelloDjinni create];
+NSString *helloDjinni = [helloDjinniInterface getHelloDjinni];
+NSLog(@"%@", helloDjinni);
+
+```
