@@ -7,6 +7,19 @@
 - all elements that are specific for this tutorial <span style="color: red">are marked</span> so you can adjust these for your own needs
 
 ## Steps
+1. (init git) and add dependencies
+2. Create djinni file
+3. Create djinni shell script
+4. Write c++ implementation
+5. Build and Test the C++ Code
+6. Generate iOS Libraries (GYP)
+7. Create iOS Project
+8. Create Makefile
+9. Add the Libraries to the build
+10. Call the C++ Library from Obj-C \o/
+11. Create Android Project
+12. New File: Makefile
+13. Build the App
 
 ### 1. (init git) and add dependencies
 
@@ -100,7 +113,7 @@ deps/djinni/src/run \
 **Make run_djinni.sh executable**
 
 ```
-chmod 755 run_djinni.sh                                                                                                   
+chmod 755 run_djinni.sh
 ```
 
 **Run Djninni \o/**
@@ -117,7 +130,7 @@ chmod 755 run_djinni.sh
 Building Djinni...
 Getting org.scala-sbt sbt 0.13.5 ...
 downloading https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt/0.13.5/jars/sbt.jar ...
-	[SUCCESSFUL ] org.scala-sbt#sbt;0.13.5!sbt.jar (2042ms)
+  [SUCCESSFUL ] org.scala-sbt#sbt;0.13.5!sbt.jar (2042ms)
 downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar ...
 
 [...]
@@ -153,7 +166,7 @@ drwxr-xr-x  6 christoph  staff   204B 24 Jan 12:58 generated-src
 
 ### 4. Write c++ implementation
 
-create src folder 
+create src folder
 
 ```
 mkdir src
@@ -322,14 +335,14 @@ drwxr-xr-x  4 christoph  staff   136B 24 Jan 13:48 HelloDjinni.xcworkspace
 
 ```
 ./build_ios/libhellodjinni.xcodeproj: libhellodjinni.gyp ./deps/djinni/support-lib/support_lib.gyp hellodjinni.djinni
-	sh ./run_djinni.sh
-	deps/gyp/gyp --depth=. -f xcode -DOS=ios --generator-output ./build_ios -Ideps/djinni/common.gypi ./libhellodjinni.gyp
+  sh ./run_djinni.sh
+  deps/gyp/gyp --depth=. -f xcode -DOS=ios --generator-output ./build_ios -Ideps/djinni/common.gypi ./libhellodjinni.gyp
 
 ios: ./build_ios/libhellodjinni.xcodeproj
-	xcodebuild -workspace ios_project/HelloDjinni.xcworkspace \
-	-scheme HelloDjinni \
-	-configuration 'Debug' \
-	-sdk iphoneos
+  xcodebuild -workspace ios_project/HelloDjinni.xcworkspace \
+  -scheme HelloDjinni \
+  -configuration 'Debug' \
+  -sdk iphoneos
 ```
 
 ** JUST DO IT**
@@ -401,6 +414,195 @@ NSString *helloDjinni = [helloDjinniInterface getHelloDjinni];
 NSLog(@"%@", helloDjinni);
 
 ```
+
+### 11. Create Android Project
+
+ **First follow step 1 - 6**
+
+### 11.a : Create Folder for Android Project
+
+```
+mkdir android_project
+```
+
+#### 11.b : Create new android project
+
+The new project must be created in folder **android_project**
+
+***Open Wizard and set the following parameter:***
+
+```
+Application Name : HelloDjinni
+Company: mycompany.com
+Project location: ../android_project/HelloDjinni
+```
+
+***--> Click next through next configurations and finish the wizard***
+
+
+Use your preferred text editor to create and add the following files to the project:
+
+***android_project/HelloDjinni/app/jni/Android.mk:***
+
+```
+# always force this build to re-run its dependencies
+FORCE_GYP := $(shell make -C ../../../GypAndroid.mk)
+include ../../../GypAndroid.mk
+```
+
+***android_project/HelloDjinni/app/jni/Application.mk:***
+
+```
+# Android makefile for hellodjinni shared lib, jni wrapper around libhellodjinni C API
+
+APP_ABI := all
+APP_OPTIM := release
+APP_PLATFORM := android-8
+# GCC 4.9 Toolchain
+NDK_TOOLCHAIN_VERSION = 4.9
+# GNU libc++ is the only Android STL which supports C++11 features
+APP_STL := gnustl_static
+APP_BUILD_SCRIPT := jni/Android.mk
+APP_MODULES := libhellodjinni_jni
+```
+
+#### 11.c : Update _build.gradle_ inside the app folder***
+
+Add missing entries to your projects app build.gradle.
+```
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.mycompany.hellodjinni"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['src', '../../../generated-src/java']
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+}
+
+task ndkBuild(type: Exec) {
+    String MainDirectory = System.getProperty("user.dir") + '/app/'
+    File ndkDir = project.getPlugins().getPlugin('android').sdkHandler.getNdkFolder()
+    if (ndkDir == null) {
+        def gradle_project_root = project.rootProject.rootDir
+        throw new GradleException("NDK is not configured. Make sure there is a local.properties " +
+                "file with an ndk.dir entry in the directory ${gradle_project_root}.")
+    }
+    def ndkBuildExecutable = new File(ndkDir, 'ndk-build')
+    if (!ndkBuildExecutable.exists()) {
+        throw new GradleException("Could not find ndk-build. The configured NDK directory ${ndkDir} may not be correct.")
+    }
+    environment("NDK_PROJECT_PATH", MainDirectory)
+    environment("GYP_CONFIGURATION", "Release")
+    commandLine ndkBuildExecutable
+}
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn ndkBuild
+}
+```
+
+### 12. New File: Makefile
+
+```
+# we specify a root target for android to prevent all of the targets from spidering out
+GypAndroid.mk: libhellodjinni.gyp ./deps/djinni/support-lib/support_lib.gyp hellodjinni.djinni
+  sh ./run_djinni.sh
+  ANDROID_BUILD_TOP=$(shell dirname `which ndk-build`) deps/gyp/gyp --depth=. -f android -DOS=android -Ideps/djinni/common.gypi ./libhellodjinni.gyp -$
+
+# this target implicitly depends on GypAndroid.mk since gradle will try to make it
+android: GypAndroid.mk
+  cd android_project/HelloDjinni/ && ./gradlew app:assembleDebug
+  @echo "Apks produced at:"
+  @python deps/djinni/example/glob.py ./ '*.apk'
+```
+
+** JUST DO IT**
+
+```
+make android
+```
+
+### 13. Build the App
+
+Add the following lines to your MainActivity.java
+```
+...
+public class MainActivity extends AppCompatActivity {
+
+  private HelloDjinni helloDjinniInterface;
+
+  static {
+    System.loadLibrary("hellodjinni_jni");
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState){
+    ...
+    helloDjinniInterface = HelloDjinni.create();
+
+    helloDjinniInterface = HelloDjinni.create();
+
+    TextView tv = (TextView) findViewById(R.id.tvHelloDjinni);
+
+    String stringResponse = helloDjinniInterface.getHelloDjinni();
+    tv.append("StringResponse: "+stringResponse);
+
+    int getIntResponse = helloDjinniInterface.getOne();
+    tv.append("intResponse: "+getIntResponse);
+    ...
+  }
+}
+```
+
+Add _android:id="@+id/tvHelloDjinni"_ to content_main.java
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    .....>
+
+        android:id="@+id/tvHelloDjinni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+</RelativeLayout>
+
+
+### FINISHED
+
+Now your app should run and show the iniital String response 'Hello Djinni' and the init response '1'
 
 ## When the interface changes
 
