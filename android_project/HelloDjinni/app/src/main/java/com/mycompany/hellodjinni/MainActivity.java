@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         int getIntResponse = helloDjinniInterface.getOne();
         tv.append("\nintResponse: "+getIntResponse);
 
-
         int getAdditionResponse = helloDjinniInterface.addition(1, 4);
         tv.append("\nadditionResponse: "+getAdditionResponse);
 

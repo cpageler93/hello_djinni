@@ -579,6 +579,9 @@ public class MainActivity extends AppCompatActivity {
 
     int getIntResponse = helloDjinniInterface.getOne();
     tv.append("intResponse: "+getIntResponse);
+
+    int getAdditionResponse = helloDjinniInterface.addition(1, 4);
+    tv.append("\nadditionResponse: "+getAdditionResponse);
     ...
   }
 }
@@ -602,7 +605,7 @@ Add _android:id="@+id/tvHelloDjinni"_ to *content_main.java*
 
 ### FINISHED
 
-Now your app should run and show the iniital String response 'Hello Djinni' and the init response '1'
+Now your app should run and show the initial String response 'Hello Djinni', the init response '1' and the addition response '5'.
 
 ## When the interface changes
 
