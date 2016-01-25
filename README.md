@@ -301,7 +301,8 @@ mkdir ios_project
 Your iOS project directory should look similar to this:
 
 ```
-> ll                                                                                                                         drwxr-xr-x  6 christoph  staff   204B 24 Jan 13:31 HelloDjinni
+> ll
+drwxr-xr-x  6 christoph  staff   204B 24 Jan 13:31 HelloDjinni
 drwxr-xr-x  4 christoph  staff   136B 24 Jan 13:48 HelloDjinni.xcworkspace
 
 > pwd
@@ -379,7 +380,7 @@ $(SRCROOT)/../../generated-src/objc
 
 now you should be able to build the project
 
-### 10. Call the C++ Library form Obj-C \o/
+### 10. Call the C++ Library from Obj-C \o/
 
 **Specific for this Tutorial:**
 
