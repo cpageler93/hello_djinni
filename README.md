@@ -466,7 +466,7 @@ APP_BUILD_SCRIPT := jni/Android.mk
 APP_MODULES := libhellodjinni_jni
 ```
 
-#### 11.c : Update _build.gradle_ inside the app folder***
+#### 11.c : Update _build.gradle_ inside the app folder
 
 Add missing entries to your projects app build.gradle.
 ```
@@ -554,7 +554,7 @@ make android
 
 ### 13. Build the App
 
-Add the following lines to your MainActivity.java
+Add the following lines to your *MainActivity.java*
 ```
 ...
 public class MainActivity extends AppCompatActivity {
@@ -584,7 +584,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Add _android:id="@+id/tvHelloDjinni"_ to content_main.java
+Add _android:id="@+id/tvHelloDjinni"_ to *content_main.java*
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
