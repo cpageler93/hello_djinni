@@ -2,4 +2,5 @@ hello_djinni = interface +c {
     static create(): hello_djinni;
     get_hello_djinni(): string;
     get_one(): i32;
+    addition(v1: i32, v2: i32): i32;
 }

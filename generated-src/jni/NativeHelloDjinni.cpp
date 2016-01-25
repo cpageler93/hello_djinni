@@ -49,4 +49,15 @@ CJNIEXPORT jint JNICALL Java_com_mycompany_hellodjinni_HelloDjinni_00024CppProxy
     } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
 }
 
+CJNIEXPORT jint JNICALL Java_com_mycompany_hellodjinni_HelloDjinni_00024CppProxy_native_1addition(JNIEnv* jniEnv, jobject /*this*/, jlong nativeRef, jint j_v1, jint j_v2)
+{
+    try {
+        DJINNI_FUNCTION_PROLOGUE1(jniEnv, nativeRef);
+        const auto& ref = ::djinni::objectFromHandleAddress<::hellodjinni::HelloDjinni>(nativeRef);
+        auto r = ref->addition(::djinni::I32::toCpp(jniEnv, j_v1),
+                               ::djinni::I32::toCpp(jniEnv, j_v2));
+        return ::djinni::release(::djinni::I32::fromCpp(jniEnv, r));
+    } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
+}
+
 }  // namespace djinni_generated

@@ -18,6 +18,8 @@ public:
     virtual std::string get_hello_djinni() = 0;
 
     virtual int32_t get_one() = 0;
+
+    virtual int32_t addition(int32_t v1, int32_t v2) = 0;
 };
 
 }  // namespace hellodjinni

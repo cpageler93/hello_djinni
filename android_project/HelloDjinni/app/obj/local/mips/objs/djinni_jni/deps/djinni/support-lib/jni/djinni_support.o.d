@@ -1,4 +1,4 @@
-/Users/thomas/_repos/git/_private/hello_djinni/android_project/HelloDjinni/app//obj/local/mips/objs/djinni_jni/deps/djinni/support-lib/jni/djinni_support.o: \
+/Users/thomas/_repos/git/_private/hello_djinni_cp/android_project/HelloDjinni/app//obj/local/mips/objs/djinni_jni/deps/djinni/support-lib/jni/djinni_support.o: \
  ../../../deps/djinni/support-lib/jni/djinni_support.cpp \
  ../../../deps/djinni/support-lib/jni/../djinni_common.hpp \
  ../../../deps/djinni/support-lib/jni/djinni_support.hpp \

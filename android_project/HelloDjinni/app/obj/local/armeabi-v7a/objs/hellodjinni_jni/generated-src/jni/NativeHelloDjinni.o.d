@@ -1,4 +1,4 @@
-/Users/thomas/_repos/git/_private/hello_djinni/android_project/HelloDjinni/app//obj/local/armeabi-v7a/objs/hellodjinni_jni/generated-src/jni/NativeHelloDjinni.o: \
+/Users/thomas/_repos/git/_private/hello_djinni_cp/android_project/HelloDjinni/app//obj/local/armeabi-v7a/objs/hellodjinni_jni/generated-src/jni/NativeHelloDjinni.o: \
  ../../../generated-src/jni/NativeHelloDjinni.cpp \
  ../../../generated-src/jni/NativeHelloDjinni.hpp \
  ../../../deps/djinni/support-lib/jni/djinni_support.hpp \

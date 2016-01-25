@@ -32,4 +32,9 @@ namespace hellodjinni {
         return 1;
     }
 
+
+    int32_t HelloDjinniImpl::addition(int32_t v1, int32_t v2){
+      return v1 + v2;
+    }
+
 }

@@ -10,6 +10,8 @@ public abstract class HelloDjinni {
 
     public abstract int getOne();
 
+    public abstract int addition(int v1, int v2);
+
     public static native HelloDjinni create();
 
     private static final class CppProxy extends HelloDjinni
@@ -50,5 +52,13 @@ public abstract class HelloDjinni {
             return native_getOne(this.nativeRef);
         }
         private native int native_getOne(long _nativeRef);
+
+        @Override
+        public int addition(int v1, int v2)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_addition(this.nativeRef, v1, v2);
+        }
+        private native int native_addition(long _nativeRef, int v1, int v2);
     }
 }

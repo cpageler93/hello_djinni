@@ -13,4 +13,7 @@
 
 - (int32_t)getOne;
 
+- (int32_t)addition:(int32_t)v1
+                 v2:(int32_t)v2;
+
 @end

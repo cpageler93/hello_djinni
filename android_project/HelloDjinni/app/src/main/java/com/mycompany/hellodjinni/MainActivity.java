@@ -41,10 +41,14 @@ public class MainActivity extends AppCompatActivity {
         tv.setText("");
 
         String stringResponse = helloDjinniInterface.getHelloDjinni();
-        tv.append("\nStringResponse: "+stringResponse);
+        tv.append("\nStringResponse: " + stringResponse);
 
         int getIntResponse = helloDjinniInterface.getOne();
         tv.append("\nintResponse: "+getIntResponse);
+
+
+        int getAdditionResponse = helloDjinniInterface.addition(1, 4);
+        tv.append("\nadditionResponse: "+getAdditionResponse);
 
     }
 
