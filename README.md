@@ -18,7 +18,7 @@
 9. Add the Libraries to the build
 10. Call the C++ Library from Obj-C \o/
 11. Create Android Project
-12. New File: Makefile
+12. Update Makefile
 13. Build the App
 
 ### 1. (init git) and add dependencies
@@ -531,7 +531,7 @@ tasks.withType(JavaCompile) {
 }
 ```
 
-### 12. New File: Makefile
+### 12. Update Makefile
 
 ```
 # we specify a root target for android to prevent all of the targets from spidering out
