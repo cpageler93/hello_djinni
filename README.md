@@ -598,7 +598,7 @@ Add _android:id="@+id/tvHelloDjinni"_ to *content_main.java*
         android:text="Hello World!" />
 
 </RelativeLayout>
-
+```
 
 ### FINISHED
 
